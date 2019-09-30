@@ -8,7 +8,7 @@ const Chat = () => {
 	return (
 		<Wrapper>
 			{ showUserSelector && <UserSelector /> }
-			<h1>Parent component</h1>
+
 		</Wrapper>
 	)
 }

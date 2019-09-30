@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components'
-const imgSource = 'https://avatars.servers.getgo.com/2205256774854474505_medium.jpg'
 
-const User = ({userName}) => {
+const User = ({userName, userImage}) => {
 	return (
 		<Wrapper>
-			<UserImage src={imgSource} alt={'user'} />
+			<UserImage src={userImage} alt={'user'} />
 			<UserName>{userName}</UserName>
 		</Wrapper>
 	);

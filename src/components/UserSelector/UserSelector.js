@@ -1,14 +1,15 @@
 import React, { Suspense } from 'react';
 import styled from 'styled-components'
 import { Spinner } from 'react-bootstrap'
+import userImage1 from '../../userPic.png'
+import userImage2 from '../../userImage.png'
+
 const User = React.lazy(() => import('./User'));
-
-
 
 const UserSelector = () => {
 
 	const spinner = () => {
-		return(
+		return (
 			<Spinner animation="border" role="status">
 				<span className="sr-only">Loading...</span>
 			</Spinner>
@@ -16,18 +17,21 @@ const UserSelector = () => {
 	}
 
 	return (
-		<Wrapper>
-			<UserWrapper>
-				<Suspense fallback={<div>{spinner()}</div>}>
-						<User userName={'test1'}/>
-				</Suspense>
-			</UserWrapper>
-			<UserWrapper>
-				<Suspense fallback={<div>{spinner()}</div>}>
-					<User userName={'test2'}/>
-				</Suspense>
-			</UserWrapper>
-		</Wrapper>
+		<React.Fragment>
+			<Wrapper>
+				<UserWrapper>
+					<Suspense fallback={<div>{spinner()}</div>}>
+						<User userName={'User 1'} userImage={userImage1}/>
+					</Suspense>
+				</UserWrapper>
+				<UserWrapper>
+					<Suspense fallback={<div>{spinner()}</div>}>
+						<User userName={'User 2'} userImage={userImage2}/>
+					</Suspense>
+				</UserWrapper>
+			</Wrapper>
+			<h1>Please Select a User</h1>
+		</React.Fragment>
 	);
 }
 
@@ -36,9 +40,10 @@ export default UserSelector;
 const Wrapper = styled.div`
 	width: 100%;
 	display: flex;
-	justify-content: space-around
+	justify-content: space-around;
+	margin-bottom: 5%
 `
 
 const UserWrapper = styled.div`
-	width: 30%
+	width: 40%
 `
