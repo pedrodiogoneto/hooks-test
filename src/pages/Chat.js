@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import UserSelector from '../components/UserSelector'
+import UserSelector from '../components/userSelector/UserSelector'
 
 const Chat = () => {
 	const [showUserSelector, setShowUserSelector] = useState(true);
